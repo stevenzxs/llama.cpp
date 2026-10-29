@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SettingsLanguage from '../SettingsLanguage.svelte';
 	import { RefreshCw } from '@lucide/svelte';
 	import {
 		SettingsChatDesktopSidebar,
@@ -19,6 +20,7 @@
 	} from '$lib/constants';
 	import { ColorMode } from '$lib/enums/ui.enums';
 	import { modelsStore, serverStore, settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { SettingsSection, SettingsSectionTitle } from '$lib/types';
 	import { setMode } from 'mode-watcher';
 	import { fade } from 'svelte/transition';
@@ -109,7 +111,7 @@
 			try {
 				JSON.parse(localConfig.customJson);
 			} catch (error) {
-				alert('Invalid JSON in custom parameters. Please check the format and try again.');
+				alert(t('Invalid JSON in custom parameters. Please check the format and try again.'));
 				console.error(error);
 
 				return;
@@ -135,7 +137,7 @@
 						processedConfig[field] = numValue;
 					}
 				} else {
-					alert(`Invalid numeric value for ${field}. Please enter a valid number.`);
+					alert(t('Invalid numeric value for {field}. Please enter a valid number.', { field }));
 
 					return;
 				}
@@ -175,6 +177,10 @@
 						<SettingsChatImportExportTab />
 					{:else if currentSection.fields}
 						<div class="space-y-6">
+							{#if currentSection.slug === SETTINGS_SECTION_SLUGS.GENERAL}
+								<SettingsLanguage />
+							{/if}
+
 							<SettingsChatFields
 								fields={currentSection.fields}
 								{localConfig}
@@ -188,7 +194,7 @@
 
 									<Button onclick={() => window.location.reload()} variant="outline">
 										<RefreshCw class="h-3 w-3" />
-										Reload app
+										{t('Reload app')}
 									</Button>
 								</div>
 							{/if}
@@ -197,7 +203,9 @@
 				</div>
 
 				<div class="mt-8 border-t border-border/30 pt-6 pb-6">
-					<p class="text-xs text-muted-foreground">Settings are saved in browser's localStorage</p>
+					<p class="text-xs text-muted-foreground">
+						{t("Settings are saved in browser's localStorage")}
+					</p>
 				</div>
 			</div>
 

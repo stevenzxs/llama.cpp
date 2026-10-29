@@ -2,12 +2,12 @@
 	// Fall-through renderer for tool calls without a dedicated block.
 	// Renders section.toolArgs / section.toolResult directly using the
 	// shared chrome shell.
-
 	import ToolCallBlock from './ToolCallBlock.svelte';
 	import { Loader2 } from '@lucide/svelte';
 	import { MarkdownContent, SyntaxHighlightedCode } from '$lib/components/app';
 	import { MAX_HEIGHT_CODE_BLOCK } from '$lib/constants';
 	import { AttachmentType, FileTypeText, MimeTypeAudio, ToolResultKind } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { AgenticSection, DatabaseMessageExtra, ToolResultLine } from '$lib/types';
 	import {
 		classifyToolResult,
@@ -38,7 +38,7 @@
 	{#snippet children(_meta, ctx)}
 		{#if ctx.isStreamingCall}
 			<div class="mb-2 flex items-center gap-2 text-xs text-muted-foreground/70">
-				<span>Input</span>
+				<span>{t('Input')}</span>
 
 				{#if ctx.isStreaming}
 					<Loader2 class="h-3 w-3 animate-spin" />
@@ -54,20 +54,20 @@
 				/>
 			{:else if ctx.isStreaming}
 				<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
-					Receiving arguments...
+					{t('Receiving arguments...')}
 				</div>
 			{:else}
 				<div
 					class="rounded bg-yellow-500/10 p-2 text-xs text-yellow-600 italic dark:text-yellow-400"
 				>
-					Response was truncated
+					{t('Response was truncated')}
 				</div>
 			{/if}
 		{:else}
 			{@const showInput = Boolean(section.toolArgs)}
 			{#if showInput}
 				<div class="mb-1.5 flex items-center gap-2 text-xs text-muted-foreground/70">
-					<span>Input</span>
+					<span>{t('Input')}</span>
 				</div>
 
 				<SyntaxHighlightedCode
@@ -83,7 +83,7 @@
 					? 'mt-4 mb-1.5 flex items-center gap-2 text-xs text-muted-foreground/70'
 					: 'mb-1.5 flex items-center gap-2 text-xs text-muted-foreground/70'}
 			>
-				<span>Output</span>
+				<span>{t('Output')}</span>
 
 				{#if ctx.isPending}
 					<Loader2 class="h-3 w-3 animate-spin" />
@@ -92,7 +92,7 @@
 
 			{#if ctx.isPending}
 				<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
-					Waiting for result...
+					{t('Waiting for result...')}
 				</div>
 			{:else if section.toolResult}
 				{#if outputKind === ToolResultKind.JSON}
@@ -119,7 +119,7 @@
 												src={createBase64DataUrl(audioMimeType, line.media.base64Data)}
 												type={audioMimeType}
 											/>
-											Your browser does not support the audio element.
+											{t('Your browser does not support the audio element.')}
 										</audio>
 									</div>
 								{:else}
@@ -135,7 +135,9 @@
 					</div>
 				{/if}
 			{:else}
-				<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">No output</div>
+				<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
+					{t('No output')}
+				</div>
 			{/if}
 		{/if}
 	{/snippet}

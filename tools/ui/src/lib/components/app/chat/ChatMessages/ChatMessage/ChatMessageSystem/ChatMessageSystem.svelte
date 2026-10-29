@@ -7,6 +7,7 @@
 	import { getChatMessageEditContext } from '$lib/contexts';
 	import { KeyboardKey } from '$lib/enums';
 	import { settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { autoResizeTextarea, isIMEComposing } from '$lib/utils';
 
 	interface Props {
@@ -90,7 +91,7 @@
 					editCtx.setContent(e.currentTarget.value);
 				}}
 				onkeydown={handleEditKeydown}
-				placeholder="Edit system message..."
+				placeholder={t('Edit system message...')}
 				style="max-height: var(--max-message-height);"
 				value={editCtx.editedContent}
 			></textarea>
@@ -99,7 +100,7 @@
 				<Button class="h-8 px-3" onclick={editCtx.cancel} size="sm" variant="outline">
 					<X class="mr-1 h-3 w-3" />
 
-					Cancel
+					{t('Cancel')}
 				</Button>
 
 				<Button
@@ -110,7 +111,7 @@
 				>
 					<Check class="mr-1 h-3 w-3" />
 
-					Save
+					{t('Save')}
 				</Button>
 			</div>
 		</div>
@@ -163,7 +164,7 @@
 										size="sm"
 										variant="outline"
 									>
-										Show full system message
+										{t('Show full system message')}
 									</Button>
 								</div>
 							{/if}
@@ -180,7 +181,7 @@
 									size="sm"
 									variant="outline"
 								>
-									Collapse System Message
+									{t('Collapse System Message')}
 								</Button>
 							</div>
 						{/if}

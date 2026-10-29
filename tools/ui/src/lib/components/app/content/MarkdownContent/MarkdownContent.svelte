@@ -34,6 +34,7 @@
 	import { BooleanString, ColorMode, UrlProtocol } from '$lib/enums';
 	import { createStickToBottom } from '$lib/hooks/use-stick-to-bottom.svelte';
 	import { settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { DatabaseMessageExtra } from '$lib/types/database';
 	import {
 		copyCodeToClipboard,
@@ -854,7 +855,7 @@
 				</div>
 
 				<div class="mermaid-loading-placeholder">
-					<span class="mermaid-loading-text">Generating diagram...</span>
+					<span class="mermaid-loading-text">{t('Generating diagram...')}</span>
 				</div>
 			</div>
 		{:else if streamingSvgCode !== null}
@@ -879,7 +880,7 @@
 					</div>
 				{:else}
 					<div class="mermaid-loading-placeholder">
-						<span class="mermaid-loading-text">Rendering svg...</span>
+						<span class="mermaid-loading-text">{t('Rendering svg...')}</span>
 					</div>
 				{/if}
 			</div>

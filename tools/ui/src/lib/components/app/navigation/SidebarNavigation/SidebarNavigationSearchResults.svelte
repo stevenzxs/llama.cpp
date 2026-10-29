@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SidebarNavigationConversationItem from './SidebarNavigationConversationItem.svelte';
+	import { t } from '$lib/stores/locale.svelte';
 	import { buildConversationTree } from '$lib/utils';
 
 	interface Props {
@@ -49,7 +50,7 @@
 		<div
 			class="text-muted-foreground flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium"
 		>
-			Search results
+			{t('Search results')}
 		</div>
 	{/if}
 

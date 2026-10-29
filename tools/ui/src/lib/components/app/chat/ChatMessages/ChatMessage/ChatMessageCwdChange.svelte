@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Folder, FolderX } from '@lucide/svelte';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { DatabaseMessage } from '$lib/types';
 	import { parseCwdMessage } from '$lib/utils';
 
@@ -20,7 +21,7 @@
 		{#if info.path === null}
 			<FolderX class="text-muted-foreground/60 h-3.5 w-3.5 shrink-0" />
 
-			<span class="text-foreground/80 text-sm font-medium">Working directory cleared</span>
+			<span class="text-foreground/80 text-sm font-medium">{t('Working directory cleared')}</span>
 		{:else}
 			<Folder class="text-muted-foreground/60 h-3.5 w-3.5 shrink-0" />
 

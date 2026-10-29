@@ -7,6 +7,7 @@
 	import { base } from '$app/paths';
 	import { Button } from '$lib/components/ui/button';
 	import { HuggingFaceService } from '$lib/services';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { HfModelDetailInfo, HfModelGguf } from '$lib/types/huggingface';
 	import { orgOf } from '$lib/utils';
 
@@ -61,7 +62,7 @@
 						<span class="truncate text-xs text-muted-foreground">{baseModels.join(', ')}</span>
 
 						<a
-							aria-label="View base model on HuggingFace"
+							aria-label={t('View base model on HuggingFace')}
 							class="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
 							href={HuggingFaceService.getModelUrl(baseModels[0])}
 							rel="noopener noreferrer"
@@ -84,7 +85,7 @@
 		>
 			<img alt="" class="h-3.5 w-3.5" src="{base}/recommended-mcp/huggingface.ico" />
 
-			View on Hugging Face
+			{t('View on Hugging Face')}
 
 			<ExternalLink class="size-3.5" />
 		</Button>

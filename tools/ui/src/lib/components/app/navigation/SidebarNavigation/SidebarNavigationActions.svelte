@@ -11,6 +11,7 @@
 	} from '$lib/constants';
 	import { SidebarAction, TooltipSide } from '$lib/enums';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { DesktopIconStripItem } from '$lib/types';
 	import type { Component } from 'svelte';
 	import { onMount } from 'svelte';
@@ -122,7 +123,7 @@
 								<span
 									in:fade={itemTransition}
 									out:fade={itemTransition}
-									class="min-w-0 truncate opacity-(--sidebar-fade)">{item.tooltip}</span
+									class="min-w-0 truncate opacity-(--sidebar-fade)">{t(item.tooltip)}</span
 								>
 							{/if}
 						</span>
@@ -156,7 +157,7 @@
 						iconSize={ICON_CLASS_DEFAULT}
 						onclick={itemOnClick}
 						size="lg"
-						tooltip={item.tooltip}
+						tooltip={t(item.tooltip)}
 						tooltipSide={TooltipSide.RIGHT}
 					/>
 				</div>

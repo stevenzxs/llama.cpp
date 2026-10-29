@@ -5,7 +5,6 @@
 	// resolved, so the spinner stays on while stdout is still flowing.
 	// The scroll-to-bottom auto-scroll logic mirrors what was here
 	// before extraction.
-
 	import { parseExecShellCommandMeta } from './parsers/exec-shell-command';
 	import ToolCallBlock from './ToolCallBlock.svelte';
 	import { AlertTriangle, Check, Loader2, XCircle } from '@lucide/svelte';
@@ -13,6 +12,7 @@
 	import { SETTINGS_KEYS, TOOL_RUNTIME_SCROLL_AT_BOTTOM_THRESHOLD_PX } from '$lib/constants';
 	import { AgenticSectionType, AttachmentType } from '$lib/enums';
 	import { settingsStore, toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { AgenticSection, DatabaseMessageExtra, ToolResultLine } from '$lib/types';
 	import {
 		abbreviateHome,
@@ -246,7 +246,7 @@
 		{#if (ctx.isPending && !commandStreaming) || (isLive && !section.toolResult)}
 			<div class="flex items-start gap-2 text-xs text-muted-foreground/70">
 				<Loader2 class="h-3 w-3 animate-spin" />
-				Executing command...
+				{t('Executing command...')}
 			</div>
 		{:else if execShellError}
 			<div class="flex items-start gap-2 text-xs text-red-600 italic dark:text-red-400">

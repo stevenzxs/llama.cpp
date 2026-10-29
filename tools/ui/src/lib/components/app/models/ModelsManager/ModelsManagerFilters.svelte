@@ -17,6 +17,7 @@
 	} from '$lib/constants';
 	import { ModelCapability } from '$lib/enums';
 	import { modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { SvelteSet } from 'svelte/reactivity';
 
 	interface Props {
@@ -105,7 +106,7 @@
 		value={String(contextLimit)}
 	>
 		<Select.Trigger class={FILTER_TRIGGER_CLASS} size="sm">
-			<span class="text-muted-foreground">Context:</span>
+			<span class="text-muted-foreground">{t('Context:')}</span>
 
 			{contextLabel}
 		</Select.Trigger>

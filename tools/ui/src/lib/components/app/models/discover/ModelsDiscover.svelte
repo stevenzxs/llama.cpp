@@ -12,6 +12,7 @@
 	import { ModelDownloadConfirmAction } from '$lib/enums';
 	import { HuggingFaceService } from '$lib/services';
 	import { modelsDiscoverStore, modelsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { HfModelInfo } from '$lib/types';
 	import { repoOf } from '$lib/utils';
 	import { untrack } from 'svelte';
@@ -172,11 +173,11 @@
 				<p class="text-sm text-destructive">{modelsDiscoverStore.error}</p>
 
 				<Button onclick={() => void modelsDiscoverStore.fetch()} size="sm" variant="outline">
-					Retry
+					{t('Retry')}
 				</Button>
 			</div>
 		{:else if !modelsDiscoverStore.loading && !modelsDiscoverStore.searching && modelsDiscoverStore.models.length === 0}
-			<p class="p-4 text-sm text-muted-foreground">No models found</p>
+			<p class="p-4 text-sm text-muted-foreground">{t('No models found')}</p>
 		{:else}
 			{#if isSearching}
 				{@render catalog()}

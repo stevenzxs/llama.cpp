@@ -4,6 +4,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { PANEL_CLOSE_MOBILE_CLASS } from '$lib/constants';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		open?: boolean;
@@ -28,7 +29,7 @@
 			<Dialog.Title class="flex items-center gap-2">
 				<Settings class="h-5 w-5" />
 
-				<span>Settings</span>
+				<span>{t('Settings')}</span>
 			</Dialog.Title>
 
 			<!-- the body is flush with the dialog, so the corner close needs its own inset -->
@@ -37,7 +38,7 @@
 			>
 				<X class="size-4" />
 
-				<span class="sr-only">Close</span>
+				<span class="sr-only">{t('Close')}</span>
 			</Dialog.Close>
 		</Dialog.Header>
 

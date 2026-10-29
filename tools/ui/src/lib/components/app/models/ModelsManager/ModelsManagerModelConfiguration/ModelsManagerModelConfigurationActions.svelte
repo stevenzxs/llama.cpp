@@ -12,6 +12,7 @@
 	} from '@lucide/svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { conversationsStore, deviceStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		/** A provider that cannot load or unload has no button to offer. */
@@ -65,18 +66,18 @@
 				{#if isDownloadPaused}
 					<Play class="h-3.5 w-3.5" />
 
-					Resume downloading
+					{t('Resume downloading')}
 				{:else}
 					<Pause class="h-3.5 w-3.5" />
 
-					Pause downloading
+					{t('Pause downloading')}
 				{/if}
 			</Button>
 
 			<Button class="flex-1 gap-1.5" onclick={onRequestCancelDownload} {size} variant="secondary">
 				<Trash2 class="h-3.5 w-3.5" />
 
-				Cancel download
+				{t('Cancel download')}
 			</Button>
 		</div>
 
@@ -84,7 +85,7 @@
 			<Button class="gap-1.5" onclick={onSeeInDiscover} {size} variant="tertiary">
 				<Compass class="h-3.5 w-3.5" />
 
-				See in Discover
+				{t('See in Discover')}
 			</Button>
 		{/if}
 	{:else}
@@ -94,11 +95,11 @@
 				{#if hasChat}
 					<MessageSquare class="h-3.5 w-3.5" />
 
-					Use in this chat
+					{t('Use in this chat')}
 				{:else}
 					<SquarePen class="h-3.5 w-3.5" />
 
-					Start a new chat
+					{t('Start a new chat')}
 				{/if}
 			</Button>
 		{/if}
@@ -108,7 +109,7 @@
 				<Button class="flex-1 gap-1.5" onclick={onUseInNewChat} {size}>
 					<SquarePen class="h-3.5 w-3.5" />
 
-					Start a new chat
+					{t('Start a new chat')}
 				</Button>
 			{/if}
 
@@ -123,15 +124,15 @@
 					{#if isLoading}
 						<Loader2 class="h-3.5 w-3.5 animate-spin" />
 
-						Loading...
+						{t('Loading...')}
 					{:else if isLoaded}
 						<Eject class="h-3.5 w-3.5" />
 
-						Unload model
+						{t('Unload model')}
 					{:else}
 						<Power class="h-3.5 w-3.5" />
 
-						Load model
+						{t('Load model')}
 					{/if}
 				</Button>
 			{/if}
@@ -140,7 +141,7 @@
 				<Button class="flex-1 gap-1.5" onclick={onSeeInDiscover} {size} variant="tertiary">
 					<Compass class="h-3.5 w-3.5" />
 
-					See in Discover
+					{t('See in Discover')}
 				</Button>
 			{/if}
 		</div>

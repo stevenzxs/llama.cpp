@@ -3,6 +3,7 @@
 	import ToolCallBlock from './ToolCallBlock.svelte';
 	import { XCircle } from '@lucide/svelte';
 	import { toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { AgenticSection } from '$lib/types';
 	import { abbreviateHome } from '$lib/utils';
 
@@ -41,7 +42,7 @@
 	{#snippet children(meta, ctx)}
 		{#if ctx.isPending}
 			<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
-				Searching...
+				{t('Searching...')}
 			</div>
 		{:else if meta?.errorMessage}
 			<div
@@ -62,7 +63,7 @@
 				Total matches: <span class="font-mono">{meta.totalMatches ?? meta.matches.length}</span>
 			</div>
 		{:else}
-			<div class="text-xs text-muted-foreground/70 italic">No matches</div>
+			<div class="text-xs text-muted-foreground/70 italic">{t('No matches')}</div>
 
 			<div class="mt-1.5 text-xs text-muted-foreground/70 italic">
 				Total matches: <span class="font-mono">{meta?.totalMatches ?? 0}</span>

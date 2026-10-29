@@ -7,6 +7,7 @@
 	import { ATTACHMENT_MENU_TEXT, CLI_FLAGS, ICON_CLASS_DEFAULT } from '$lib/constants';
 	import { useToolsPanel } from '$lib/hooks/use-tools-panel.svelte';
 	import { mcpStore, toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ToolGroup } from '$lib/types';
 
 	const toolsPanel = useToolsPanel();
@@ -26,7 +27,7 @@
 				<div class="px-3 py-4 text-center text-sm text-muted-foreground">
 					<Loader2 class="mx-auto mb-1 {ICON_CLASS_DEFAULT} animate-spin" />
 
-					Loading tools...
+					{t('Loading tools...')}
 				</div>
 			{:else if toolsStore.isToolsEndpointUnreachable}
 				<div class="grid gap-2.5 px-3 py-4 text-sm text-muted-foreground">
@@ -36,7 +37,7 @@
 						<span>
 							Run llama-server with <code>{CLI_FLAGS.TOOLS}</code> flag to enable
 
-							<strong>Server Tools</strong>.
+							<strong>{t('Server Tools')}</strong>.
 						</span>
 					</span>
 
@@ -46,12 +47,14 @@
 						<span>
 							{hasMcpServersAvailable ? 'Enable' : 'Add'} MCP Server(s) to access
 
-							<strong>MCP Tools</strong>.
+							<strong>{t('MCP Tools')}</strong>.
 						</span>
 					</span>
 				</div>
 			{:else if toolsStore.error}
-				<div class="px-3 py-4 text-center text-sm text-muted-foreground">Failed to load tools</div>
+				<div class="px-3 py-4 text-center text-sm text-muted-foreground">
+					{t('Failed to load tools')}
+				</div>
 			{:else if toolsPanel.noToolsInfoMessage}
 				<div class="flex gap-2 px-3 py-4 text-sm text-muted-foreground">
 					<Info class="mt-0.5 {ICON_CLASS_DEFAULT} shrink-0" />
@@ -59,7 +62,9 @@
 					<span>{toolsPanel.noToolsInfoMessage}</span>
 				</div>
 			{:else}
-				<div class="px-3 py-4 text-center text-sm text-muted-foreground">No tools available</div>
+				<div class="px-3 py-4 text-center text-sm text-muted-foreground">
+					{t('No tools available')}
+				</div>
 			{/if}
 		{:else}
 			<div class="max-h-80 overflow-y-auto p-2 pr-1">

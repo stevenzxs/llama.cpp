@@ -5,6 +5,7 @@
 	import { CLI_FLAGS, HEADERS, MCP_SERVER_URL_PLACEHOLDER } from '$lib/constants';
 	import { UrlProtocol } from '$lib/enums';
 	import { mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { KeyValuePair } from '$lib/types';
 	import { parseHeadersToArray, serializeHeaders } from '$lib/utils';
 
@@ -141,7 +142,7 @@
 <div class="grid gap-2">
 	<div class="mb-4">
 		<label class="mb-2 block text-xs font-medium select-none" for="server-url-{id}">
-			Server URL <span class="text-destructive">*</span>
+			{t('Server URL')} <span class="text-destructive">*</span>
 		</label>
 
 		<Input
@@ -161,13 +162,13 @@
 
 	<div class="mb-4">
 		<label class="mb-2 block text-xs font-medium select-none" for="server-name-{id}">
-			Display name
+			{t('Display name')}
 		</label>
 
 		<Input
 			id="server-name-{id}"
 			oninput={(e) => onNameChange?.(e.currentTarget.value)}
-			placeholder={namePlaceholder}
+			placeholder={t(namePlaceholder)}
 			type="text"
 			value={name}
 		/>
@@ -182,7 +183,7 @@
 		/>
 
 		<span class="text-xs text-muted-foreground">
-			Authorization{#if required}
+			{t('Authorization')}{#if required}
 				<span class="text-destructive">*</span>{/if}
 		</span>
 	</label>
@@ -195,7 +196,7 @@
 				class="pl-16"
 				id="bearer-token-{id}"
 				oninput={(e) => updateBearerToken(e.currentTarget.value)}
-				placeholder="Paste token here"
+				placeholder={t('Paste token here')}
 				type="password"
 				value={bearerToken}
 			/>
@@ -241,7 +242,7 @@
 			/>
 
 			<span>
-				<span class="text-xs text-muted-foreground">Use llama-server proxy</span>
+				<span class="text-xs text-muted-foreground">{t('Use llama-server proxy')}</span>
 
 				<br />
 

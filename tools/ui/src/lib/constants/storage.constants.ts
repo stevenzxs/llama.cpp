@@ -8,6 +8,8 @@
 /** Name prefix for all localStorage keys */
 export const STORAGE_APP_NAME = 'LlamaUi';
 
+export const LOCALE_LOCALSTORAGE_KEY = `${STORAGE_APP_NAME}.locale`;
+
 /** Deprecated localStorage key prefix (old app name) */
 export const STORAGE_APP_NAME_DEPRECATED = 'LlamaCppWebui';
 

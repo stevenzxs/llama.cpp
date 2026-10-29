@@ -10,6 +10,7 @@
 	import { ROUTES } from '$lib/constants';
 	import { RouterService } from '$lib/services/router.service';
 	import { chatStore, conversationsStore, deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	let searchQuery = $state('');
 	let searchInputRef = $state<HTMLInputElement | null>(null);
@@ -97,7 +98,7 @@
 		bind:value={searchQuery}
 		autofocus
 		onClose={handleBack}
-		placeholder="Search conversations..."
+		placeholder={t('Search conversations...')}
 	/>
 </div>
 

@@ -2,6 +2,7 @@
 	import { AlertTriangle, TimerOff } from '@lucide/svelte';
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import { ErrorDialogType } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		open: boolean;
@@ -64,7 +65,7 @@
 
 					{#if contextInfo.n_ctx}
 						<p>
-							<span class="font-medium">Context size:</span>
+							<span class="font-medium">{t('Context size:')}</span>
 
 							{contextInfo.n_ctx.toLocaleString()}
 						</p>
@@ -74,7 +75,7 @@
 		</div>
 
 		<AlertDialog.Footer>
-			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Close</AlertDialog.Action>
+			<AlertDialog.Action onclick={() => handleOpenChange(false)}>{t('Close')}</AlertDialog.Action>
 		</AlertDialog.Footer>
 	</AlertDialog.Content>
 </AlertDialog.Root>

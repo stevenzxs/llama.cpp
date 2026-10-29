@@ -4,6 +4,7 @@
 	import { ICON_CLASS_DEFAULT, MAX_DISPLAYED_MCP_AVATARS } from '$lib/constants';
 	import { HealthCheckStatus, ToolSource } from '$lib/enums';
 	import { conversationsStore, mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		class?: string;
@@ -60,7 +61,7 @@
 			</Tooltip.Trigger>
 
 			<Tooltip.Content>
-				<p>MCP Servers</p>
+				<p>{t('MCP Servers')}</p>
 			</Tooltip.Content>
 		</Tooltip.Root>
 	</button>

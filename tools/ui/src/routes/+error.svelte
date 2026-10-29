@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { ServerErrorSplash } from '$lib/components/app';
 	import { APP_NAME, ROUTES } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 
 	let error = $derived($page.error);
 	let status = $derived($page.status);
@@ -23,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>Error {status} - {APP_NAME}</title>
+	<title>{t('Error')} {status} - {APP_NAME}</title>
 </svelte:head>
 
 {#if isApiKeyError}
@@ -56,7 +57,7 @@
 					</svg>
 				</div>
 
-				<h1 class="mb-2 text-2xl font-bold">Error {status}</h1>
+				<h1 class="mb-2 text-2xl font-bold">{t('Error')} {status}</h1>
 
 				<p class="text-muted-foreground">
 					{error?.message || 'Something went wrong'}
@@ -67,7 +68,7 @@
 				class="rounded-md bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
 				onclick={() => goto(ROUTES.START)}
 			>
-				Go Home
+				{t('Go Home')}
 			</button>
 		</div>
 	</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button, type ButtonVariant } from '$lib/components/ui/button';
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { Component } from 'svelte';
 
 	let {
@@ -32,14 +33,14 @@
 </script>
 
 <div class="grid gap-1 {wrapperClass ?? ''}">
-	<h4 class="mt-0 mb-2 text-sm font-medium {titleClass ?? ''}">{title}</h4>
+	<h4 class="mt-0 mb-2 text-sm font-medium {titleClass ?? ''}">{t(title)}</h4>
 
-	<p class="mb-4 text-sm text-muted-foreground">{description}</p>
+	<p class="mb-4 text-sm text-muted-foreground">{t(description)}</p>
 
 	<Button class={sectionButtonClass} {onclick} variant={sectionButtonVariant}>
 		<IconComponent class="mr-2 {ICON_CLASS_DEFAULT}" />
 
-		{buttonText}
+		{t(buttonText)}
 	</Button>
 
 	{#if summary && summary.show && summary.items.length > 0}

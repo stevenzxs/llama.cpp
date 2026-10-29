@@ -29,6 +29,7 @@
 	import { useMarqueeSelection } from '$lib/hooks/use-marquee-selection.svelte';
 	import { RouterService } from '$lib/services/router.service';
 	import { chatStore, conversationsStore, deviceStore, settingsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { buildConversationTree, remToPx } from '$lib/utils';
 	import { circIn } from 'svelte/easing';
 	import { SvelteSet } from 'svelte/reactivity';
@@ -520,7 +521,7 @@
 					iconSize="h-4.5 w-4.5 md:h-4 md:w-4"
 					onclick={uiStore.isSidebarExpanded ? undefined : toggleExpandedMode}
 					size="lg"
-					tooltip={uiStore.isSidebarExpanded ? undefined : 'Open Sidebar'}
+					tooltip={uiStore.isSidebarExpanded ? undefined : t('Open Sidebar')}
 					tooltipSide={TooltipSide.RIGHT}
 				/>
 			</div>
@@ -542,7 +543,7 @@
 							iconSize="h-4 w-4"
 							onclick={toggleExpandedMode}
 							size="lg"
-							tooltip="Close Sidebar"
+							tooltip={t('Close Sidebar')}
 							tooltipSide={TooltipSide.LEFT}
 						/>
 					{/if}
@@ -608,7 +609,7 @@
 				data-slot="sidebar-resize-handle"
 				ondblclick={() => uiStore.setSidebarWidth(null)}
 				onpointerdown={handleResizePointerDown}
-				title="Drag to resize or hide, double-click to reset"
+				title={t('Drag to resize or hide, double-click to reset')}
 			></div>
 
 			<!-- the edge strip is clipped to the sidebar's rounded corners without

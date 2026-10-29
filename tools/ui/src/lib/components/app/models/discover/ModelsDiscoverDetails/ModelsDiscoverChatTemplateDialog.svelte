@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { COPY_FEEDBACK_RESET_MS } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 	import { copyToClipboard } from '$lib/utils';
 
 	interface Props {
@@ -38,10 +39,10 @@
 			class="flex-row items-center gap-2 border-b border-border/40 p-4"
 			showCloseButton={false}
 		>
-			<Dialog.Title class="text-sm font-semibold">Chat template</Dialog.Title>
+			<Dialog.Title class="text-sm font-semibold">{t('Chat template')}</Dialog.Title>
 
 			<Button
-				aria-label="Copy chat template"
+				aria-label={t('Copy chat template')}
 				class="h-auto gap-1.5 px-2 py-1 text-xs"
 				onclick={() => void copy()}
 				size="sm"
@@ -53,11 +54,11 @@
 					<Copy class="size-3.5" />
 				{/if}
 
-				Copy
+				{t('Copy')}
 			</Button>
 
 			<Dialog.Close
-				aria-label="Close"
+				aria-label={t('Close')}
 				class="ml-auto inline-flex cursor-pointer items-center justify-center rounded-md p-1.5 text-muted-foreground/70 transition-colors hover:bg-muted-foreground/10 hover:text-foreground"
 				type="button"
 			>

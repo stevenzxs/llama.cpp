@@ -9,6 +9,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { ICON_CLASS_DEFAULT, PANEL_CLOSE_MOBILE_CLASS } from '$lib/constants';
 	import { deviceStore, mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { MCPResourceContent, MCPResourceInfo, MCPResourceTemplateInfo } from '$lib/types';
 	import { getResourceDisplayName } from '$lib/utils';
 	import { SvelteSet } from 'svelte/reactivity';
@@ -260,7 +261,7 @@
 			<Dialog.Title class="flex items-center gap-2">
 				<FolderOpen class="h-5 w-5" />
 
-				<span>MCP Resources</span>
+				<span>{t('MCP Resources')}</span>
 
 				{#if totalCount > 0}
 					<span class="text-sm font-normal text-muted-foreground">({totalCount})</span>
@@ -268,7 +269,7 @@
 			</Dialog.Title>
 
 			<Dialog.Description>
-				Browse and attach resources from connected MCP servers to your chat context.
+				{t('Browse and attach resources from connected MCP servers to your chat context.')}
 			</Dialog.Description>
 
 			<!-- the body is flush with the dialog, so the corner close needs its own inset -->
@@ -277,7 +278,7 @@
 			>
 				<X class="size-4" />
 
-				<span class="sr-only">Close</span>
+				<span class="sr-only">{t('Close')}</span>
 			</Dialog.Close>
 		</Dialog.Header>
 
@@ -331,7 +332,7 @@
 									size="sm"
 									variant="outline"
 								>
-									Try again
+									{t('Try again')}
 								</Button>
 							</div>
 						{:else}
@@ -367,14 +368,14 @@
 					</div>
 				{:else}
 					<div class="flex h-full items-center justify-center text-sm text-muted-foreground">
-						Select a resource to preview
+						{t('Select a resource to preview')}
 					</div>
 				{/if}
 			</div>
 		</div>
 
 		<Dialog.Footer class="border-t border-border/30 px-6 py-4">
-			<Button onclick={() => handleOpenChange(false)} variant="outline">Cancel</Button>
+			<Button onclick={() => handleOpenChange(false)} variant="outline">{t('Cancel')}</Button>
 
 			{#if hasTemplateResult}
 				<Button disabled={isAttaching} onclick={handleAttachTemplateResource}>
@@ -384,7 +385,7 @@
 						<Plus class="mr-2 {ICON_CLASS_DEFAULT}" />
 					{/if}
 
-					Attach Resource
+					{t('Attach Resource')}
 				</Button>
 			{:else}
 				<Button disabled={selectedResources.size === 0 || isAttaching} onclick={handleAttach}>
@@ -394,7 +395,8 @@
 						<Plus class="mr-2 {ICON_CLASS_DEFAULT}" />
 					{/if}
 
-					Attach {selectedResources.size > 0 ? `(${selectedResources.size})` : 'Resource'}
+					{t('Attach')}
+					{selectedResources.size > 0 ? `(${selectedResources.size})` : 'Resource'}
 				</Button>
 			{/if}
 		</Dialog.Footer>

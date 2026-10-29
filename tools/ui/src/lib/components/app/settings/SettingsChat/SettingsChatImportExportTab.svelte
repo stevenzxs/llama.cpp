@@ -10,6 +10,7 @@
 	import { ConversationSelectionMode, FileExtensionText, HtmlInputType } from '$lib/enums';
 	import { ConversationTransferService } from '$lib/services';
 	import { conversationsStore, settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { createMessageCountMap } from '$lib/utils';
 	import { fade } from 'svelte/transition';
 	import { toast } from 'svelte-sonner';
@@ -258,14 +259,14 @@
 </script>
 
 <div in:fade={{ duration: 150 }} class="space-y-12">
-	<SettingsGroup title="Conversations">
+	<SettingsGroup title={t('Conversations')}>
 		<SettingsChatImportExportSection
 			IconComponent={Download}
 			buttonText="Export conversations"
 			description="Download your conversations as a ZIP of JSONL files. This includes all messages, attachments, and conversation history."
 			onclick={handleExportClick}
 			summary={{ items: exportedConversations, show: showExportSummary, verb: 'Exported' }}
-			title="Export"
+			title={t('Export')}
 		/>
 
 		<SettingsChatImportExportSection
@@ -274,7 +275,7 @@
 			description="Import one or more conversations from a previously exported ZIP or JSONL file. This will merge with your existing conversations."
 			onclick={handleImportClick}
 			summary={{ items: importedConversations, show: showImportSummary, verb: 'Imported' }}
-			title="Import"
+			title={t('Import')}
 		/>
 
 		<SettingsChatImportExportSection
@@ -284,19 +285,19 @@
 			buttonVariant="destructive"
 			description="Permanently delete all conversations and their messages. This action cannot be undone. Consider exporting your conversations first if you want to keep a backup."
 			onclick={handleDeleteAllClick}
-			title="Delete All"
+			title={t('Delete All')}
 			titleClass="text-destructive"
 		/>
 	</SettingsGroup>
 
-	<SettingsGroup title="Settings">
+	<SettingsGroup title={t('Settings')}>
 		<SettingsChatImportExportSection
 			IconComponent={Download}
 			buttonText="Export settings"
 			description="Export your chat settings and preferences as a JSON file."
 			onclick={handleSettingsExport}
 			summary={{ items: [], show: showSettingsExportSummary, verb: 'Exported' }}
-			title="Export"
+			title={t('Export')}
 		/>
 
 		<SettingsChatImportExportSection
@@ -305,7 +306,7 @@
 			description="Import chat settings from a previously exported JSON file. This will merge with your existing settings."
 			onclick={handleSettingsImport}
 			summary={{ items: [], show: showSettingsImportSummary, verb: 'Imported' }}
-			title="Import"
+			title={t('Import')}
 		/>
 	</SettingsGroup>
 </div>
@@ -343,6 +344,6 @@
 	icon={Trash2}
 	onCancel={handleDeleteAllCancel}
 	onConfirm={handleDeleteAllConfirm}
-	title="Delete all conversations"
+	title={t('Delete all conversations')}
 	variant="destructive"
 />

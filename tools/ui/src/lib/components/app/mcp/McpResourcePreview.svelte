@@ -5,6 +5,7 @@
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
 	import { MimeTypeApplication, MimeTypeText } from '$lib/enums';
 	import { mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { MCPResourceContent, MCPResourceInfo } from '$lib/types';
 	import {
 		createBase64DataUrl,
@@ -79,7 +80,7 @@
 		<div class="flex flex-col items-center justify-center gap-2 py-8 text-muted-foreground">
 			<FileText class="h-8 w-8 opacity-50" />
 
-			<span class="text-sm">Select a resource to preview</span>
+			<span class="text-sm">{t('Select a resource to preview')}</span>
 		</div>
 	{:else}
 		<div class="flex items-start justify-between gap-2">
@@ -105,7 +106,7 @@
 					disabled={isLoading || !getResourceTextContent(content)}
 					onclick={handleDownload}
 					size="sm"
-					title="Download content"
+					title={t('Download content')}
 					variant="ghost"
 				>
 					<Download class="h-3.5 w-3.5" />
@@ -152,7 +153,9 @@
 				{/each}
 
 				{#if !textContent && blobContent.length === 0}
-					<div class="py-4 text-center text-sm text-muted-foreground">No content available</div>
+					<div class="py-4 text-center text-sm text-muted-foreground">
+						{t('No content available')}
+					</div>
 				{/if}
 			{/if}
 		</div>
@@ -170,7 +173,8 @@
 				{/if}
 
 				<span class="rounded bg-muted px-1.5 py-0.5">
-					Server: {resource.serverName}
+					{t('Server:')}
+					{resource.serverName}
 				</span>
 			</div>
 		{/if}

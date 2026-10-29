@@ -48,6 +48,7 @@
 		ModelsTableSortKey
 	} from '$lib/enums';
 	import { modelsStore, settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 	import { groupModelFamilies, type ModelFamilyGroup } from '$lib/utils/model-families';
 	import type { Snippet } from 'svelte';
@@ -330,7 +331,8 @@
 			onclick={onMore}
 			type="button"
 		>
-			Show {count} more {SHOW_MORE_NOUNS[unit]}
+			{t('Show')}
+			{count} more {SHOW_MORE_NOUNS[unit]}
 		</button>
 	</div>
 {/snippet}
@@ -360,9 +362,9 @@
 			{@render sortHeader(ModelsTableSortKey.CONTEXT, 'Context')}
 		</span>
 
-		<span class="justify-self-center max-md:hidden">Status</span>
+		<span class="justify-self-center max-md:hidden">{t('Status')}</span>
 
-		<span class="text-center max-md:hidden">Actions</span>
+		<span class="text-center max-md:hidden">{t('Actions')}</span>
 	</div>
 
 	<div class="mt-2 min-h-0 flex-1 overflow-y-auto">

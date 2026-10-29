@@ -3,6 +3,7 @@
 	import * as Select from '$lib/components/ui/select';
 	import { COPY_FEEDBACK_RESET_MS, MODEL_ID, SERVE_COMMAND, SPEC_TYPE } from '$lib/constants';
 	import type { ModelDraftSidecar } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 	import { copyToClipboard } from '$lib/utils';
 
 	interface Props {
@@ -93,7 +94,7 @@
 					value={draftKind}
 				>
 					<Select.Trigger
-						aria-label="Draft type"
+						aria-label={t('Draft type')}
 						class="border-primary/15 bg-primary/[0.07] font-mono text-foreground hover:bg-primary/15 focus-visible:border-primary/40 focus-visible:ring-0"
 						size="xs"
 					>
@@ -117,7 +118,7 @@
 	</div>
 
 	<button
-		aria-label="Copy command"
+		aria-label={t('Copy command')}
 		class="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-md p-1.5 text-muted-foreground/70 transition-colors hover:bg-primary/10 hover:text-foreground"
 		onclick={copy}
 		type="button"

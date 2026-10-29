@@ -10,6 +10,7 @@
 	import { ModelDownloadConfirmAction, ServerModelStatus } from '$lib/enums';
 	import { HuggingFaceService } from '$lib/services';
 	import { deviceStore, modelsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { HfModelDetailInfo } from '$lib/types/huggingface';
 	import type { ModelOption } from '$lib/types/models';
 	import { repoOf } from '$lib/utils';
@@ -114,7 +115,7 @@
 							{HuggingFaceService.formatFileSize(downloadProgress?.totalBytes ?? 0)}
 							({downloadPercent}%)
 						{:else}
-							Waiting for progress...
+							{t('Waiting for progress...')}
 						{/if}
 					</span>
 				</div>
@@ -137,7 +138,7 @@
 					variant="ghost"
 				>
 					<Trash2 class="h-4 w-4" />
-					Delete this model from disk
+					{t('Delete this model from disk')}
 				</Button>
 			</div>
 		{/if}

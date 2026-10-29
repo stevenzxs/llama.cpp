@@ -26,6 +26,7 @@
 	} from '$lib/constants';
 	import { RouterService } from '$lib/services/router.service';
 	import { chatStore, conversationsStore, settingsStore, tabsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { onMount } from 'svelte';
 
 	interface Props {
@@ -234,7 +235,7 @@
 				</Tooltip.Trigger>
 
 				<Tooltip.Content>
-					<p>See parent conversation</p>
+					<p>{t('See parent conversation')}</p>
 				</Tooltip.Content>
 			</Tooltip.Root>
 		{/if}
@@ -243,7 +244,7 @@
 			<Tooltip.Root>
 				<Tooltip.Trigger>
 					<div
-						aria-label="Stop generation"
+						aria-label={t('Stop generation')}
 						class="stop-button flex {ICON_CLASS_DEFAULT} shrink-0 cursor-pointer items-center justify-center rounded text-muted-foreground transition-colors hover:text-foreground"
 						onclick={handleStop}
 						onkeydown={(e) => e.key === 'Enter' && handleStop(e)}
@@ -257,7 +258,7 @@
 				</Tooltip.Trigger>
 
 				<Tooltip.Content>
-					<p>Stop generation</p>
+					<p>{t('Stop generation')}</p>
 				</Tooltip.Content>
 			</Tooltip.Root>
 		{/if}

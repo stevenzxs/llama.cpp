@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContextGaugeDetailRow from './ContextGaugeDetailRow.svelte';
 	import { STATS_UNITS } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		currentRead: number;
@@ -33,7 +34,7 @@
 </script>
 
 <div class="mt-3 border-t border-border/50 pt-4">
-	<p class="text-xs text-muted-foreground max-md:text-[13px]">Token usage details</p>
+	<p class="text-xs text-muted-foreground max-md:text-[13px]">{t('Token usage details')}</p>
 
 	<div class="flex flex-col gap-4 pt-4 text-xs max-md:gap-5 max-md:text-[13px]">
 		{#if hasCumulative}
@@ -70,7 +71,7 @@
 				<h3
 					class="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/70 mb-2 max-md:text-xs"
 				>
-					This turn · KV cache
+					{t('This turn · KV cache')}
 				</h3>
 
 				<div class="flex flex-col gap-2">
@@ -93,7 +94,7 @@
 
 					<div class="pt-1 mt-0.5 border-t border-border/30">
 						<div class="flex justify-between">
-							<span class="text-muted-foreground">KV cache total</span>
+							<span class="text-muted-foreground">{t('KV cache total')}</span>
 
 							<span class="font-mono font-medium">{kvTotal.toLocaleString()} tok</span>
 						</div>

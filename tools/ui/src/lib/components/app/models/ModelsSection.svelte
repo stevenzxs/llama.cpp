@@ -2,8 +2,8 @@
 	import { ChevronLeft, CircleAlert, Loader2 } from '@lucide/svelte';
 	import { CollapsibleSection } from '$lib/components/app';
 	import { modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { Snippet } from 'svelte';
-
 	interface Props {
 		children: Snippet;
 		/** Extra classes for the chevron, to line it up with a row's own control. */
@@ -63,7 +63,7 @@
 	{#snippet trigger()}
 		{#if onBack}
 			<button
-				aria-label="Back to all providers"
+				aria-label={t('Back to all providers')}
 				class="-ml-1 inline-flex shrink-0 cursor-pointer items-center rounded-sm p-0.5 text-muted-foreground transition hover:bg-muted/60 hover:text-foreground"
 				onclick={(event) => {
 					// the back control must not collapse the list it is leaving
@@ -80,7 +80,7 @@
 			{@render icon()}
 		{/if}
 
-		<span class="truncate">{label}</span>
+		<span class="truncate">{t(label)}</span>
 
 		{#if loading}
 			<Loader2 class="h-3 w-3 shrink-0 animate-spin" />

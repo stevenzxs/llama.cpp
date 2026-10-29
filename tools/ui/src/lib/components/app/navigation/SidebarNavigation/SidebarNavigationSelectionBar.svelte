@@ -3,6 +3,7 @@
 	import { ActionIcon, DialogConfirmation } from '$lib/components/app';
 	import { Checkbox } from '$lib/components/ui/checkbox';
 	import { TooltipSide } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		class?: string;
@@ -71,7 +72,7 @@
 </script>
 
 <div
-	aria-label="Bulk actions for selected conversations"
+	aria-label={t('Bulk actions for selected conversations')}
 	class="flex items-center gap-1.5 rounded-xl border border-border/50 bg-background/50 px-2 py-1.5 shadow-sm backdrop-blur-xl {className}"
 	role="toolbar"
 >
@@ -127,7 +128,7 @@
 			iconSize="h-3.5 w-3.5 text-destructive"
 			onclick={handleDeleteClick}
 			size="sm"
-			tooltip="Delete selected"
+			tooltip={t('Delete selected')}
 			tooltipSide={TooltipSide.TOP}
 		/>
 
@@ -140,7 +141,7 @@
 			iconSize="h-3.5 w-3.5"
 			onclick={onClose}
 			size="sm"
-			tooltip="Exit bulk selection mode"
+			tooltip={t('Exit bulk selection mode')}
 			tooltipSide={TooltipSide.TOP}
 		/>
 	</div>

@@ -7,6 +7,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { HuggingFaceService } from '$lib/services';
 	import { modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ApiLlamaCppServerProps } from '$lib/types/api';
 	import type { HfModelDetailInfo } from '$lib/types/huggingface';
 	import type { ModelOption } from '$lib/types/models';
@@ -110,7 +111,7 @@
 
 <div class="space-y-0">
 	<div class="flex items-center gap-3 border-b border-border/30 py-2.5">
-		<span class="text-sm text-muted-foreground">Model</span>
+		<span class="text-sm text-muted-foreground">{t('Model')}</span>
 
 		<span class="ml-auto flex min-w-0 flex-1 items-center gap-2">
 			<span class="min-w-0 flex-1 overflow-x-auto font-mono text-xs whitespace-nowrap">
@@ -163,13 +164,13 @@
 
 	{#if visibleRows.length === 0}
 		<p class="py-2.5 text-sm text-muted-foreground">
-			The model reports its metadata once it is loaded.
+			{t('The model reports its metadata once it is loaded.')}
 		</p>
 	{/if}
 
 	{#if modalities.length > 0}
 		<div class="flex items-center gap-3 border-b border-border/30 py-2.5 last:border-b-0">
-			<span class="text-sm text-muted-foreground">Modalities</span>
+			<span class="text-sm text-muted-foreground">{t('Modalities')}</span>
 
 			<span class="ml-auto flex flex-wrap gap-1"><BadgesModality {modalities} /></span>
 		</div>
@@ -186,7 +187,7 @@
 <div class="mt-4">
 	<CollapsibleSection triggerClass={sectionTrigger}>
 		{#snippet trigger()}
-			<span class="text-sm font-medium">Chat Template</span>
+			<span class="text-sm font-medium">{t('Chat Template')}</span>
 		{/snippet}
 
 		<pre

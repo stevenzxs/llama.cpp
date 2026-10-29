@@ -5,6 +5,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { ServerModelStatus } from '$lib/enums';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 
 	interface Props {
@@ -111,7 +112,7 @@
 		<!-- a phone's bottom drawer closes by its handle and overlay, it needs no button -->
 		{#if !isMobile}
 			<Button
-				aria-label="Close details"
+				aria-label={t('Close details')}
 				class="h-7 w-7"
 				onclick={onClose}
 				size="icon"

@@ -36,6 +36,7 @@
 		toolsStore,
 		uiStore
 	} from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type {
 		FileMentionEntry,
 		GetPromptResult,
@@ -616,7 +617,7 @@
 				}}
 				onKeydown={handleKeydown}
 				onPaste={handlePaste}
-				{placeholder}
+				placeholder={t(placeholder)}
 				{useRichInput}
 			/>
 

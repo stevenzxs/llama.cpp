@@ -9,6 +9,7 @@
 	import { ModelDraftSidecar, ModelRowDownloadState } from '$lib/enums';
 	import { HuggingFaceService } from '$lib/services';
 	import { modelsDiscoverStore, modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelsDiscoverSizeRange } from '$lib/stores/models-discover/index.svelte';
 	import type { HfModelInfo, HfModelSiblingRef } from '$lib/types/huggingface';
 	import type {
@@ -223,7 +224,7 @@
 						iconSize="h-4 w-4"
 						onclick={() => state.onRequestCancel?.(state.repoWithTag)}
 						stopPropagationOnClick
-						tooltip="Cancel downloading"
+						tooltip={t('Cancel downloading')}
 						tooltipAsTitle
 					/>
 				</span>

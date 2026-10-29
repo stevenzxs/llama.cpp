@@ -13,6 +13,7 @@
 	} from '$lib/constants';
 	import { useScrollCarousel } from '$lib/hooks/use-scroll-carousel.svelte';
 	import { chatStore, conversationsStore, tabsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { resolveTabView } from '$lib/utils';
 	import { tick } from 'svelte';
 
@@ -87,7 +88,7 @@
 </script>
 
 <nav
-	aria-label="Open conversations"
+	aria-label={t('Open conversations')}
 	class={[
 		'group sticky pl-1 top-0 z-10 hidden md:block chat-top-fade transition-[padding] duration-200 ease-in-out pt-3.25',
 		uiStore.isSidebarExpanded

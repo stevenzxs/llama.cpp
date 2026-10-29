@@ -3,6 +3,7 @@
 	import { downloadGroups, findModelOption } from './utils';
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { conversationsStore, deviceStore, modelsStore, serverStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 	import { untrack } from 'svelte';
 
@@ -140,10 +141,10 @@
 	<Drawer.Content
 		class="data-[vaul-drawer-direction=bottom]:h-[85dvh] data-[vaul-drawer-direction=bottom]:max-h-[85dvh] data-[vaul-drawer-direction=right]:w-[30rem] data-[vaul-drawer-direction=right]:max-w-[calc(100vw-2rem)] data-[vaul-drawer-direction=right]:sm:max-w-[30rem]"
 	>
-		<Drawer.Title class="sr-only">Model details</Drawer.Title>
+		<Drawer.Title class="sr-only">{t('Model details')}</Drawer.Title>
 
 		<Drawer.Description class="sr-only">
-			Configuration, actions and metadata of the selected model.
+			{t('Configuration, actions and metadata of the selected model.')}
 		</Drawer.Description>
 
 		<div

@@ -11,6 +11,7 @@
 	import { useScrollActiveRow } from '$lib/hooks/use-scroll-active-row.svelte';
 	import { ToolsService } from '$lib/services/tools.service';
 	import { conversationsStore, toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { GlobEntry } from '$lib/types';
 	import {
 		abbreviateHome,
@@ -349,7 +350,7 @@
 		class="pointer-events-none absolute inset-0 opacity-0"
 		tabindex={-1}
 	>
-		<span class="sr-only">Open working directory picker</span>
+		<span class="sr-only">{t('Open working directory picker')}</span>
 	</Popover.Trigger>
 
 	<Popover.Content
@@ -369,7 +370,7 @@
 				bind:value={query}
 				class="w-full"
 				onClose={closePicker}
-				placeholder="Choose working directory"
+				placeholder={t('Choose working directory')}
 			/>
 
 			{#if !fileSearchEnabled}
@@ -395,7 +396,7 @@
 				>
 					<FolderOpen class="size-4 shrink-0 text-muted-foreground" />
 
-					<span>Browse</span>
+					<span>{t('Browse')}</span>
 				</button>
 			{/if}
 

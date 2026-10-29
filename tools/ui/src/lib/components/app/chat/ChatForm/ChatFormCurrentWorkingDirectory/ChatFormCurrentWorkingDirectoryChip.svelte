@@ -3,6 +3,7 @@
 	import { ActionIcon } from '$lib/components/app/actions';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { SET_WORKING_DIRECTORY_LABEL } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 	import { abbreviateWorkingDir } from '$lib/utils';
 
 	interface Props {
@@ -64,7 +65,7 @@
 				iconSize="h-3 w-3"
 				onclick={onClear}
 				stopPropagationOnClick
-				tooltip="Reset working directory"
+				tooltip={t('Reset working directory')}
 			/>
 		</div>
 	{/if}

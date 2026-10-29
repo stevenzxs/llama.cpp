@@ -2,6 +2,7 @@
 	import { ActionIcon } from '$lib/components/app';
 	import { ICON_CLASS_DEFAULT, MODEL_LOAD_ICONS } from '$lib/constants';
 	import { modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 
 	interface Props {
@@ -78,7 +79,7 @@
 					iconSize="h-4 w-4"
 					onclick={() => modelsStore.status.load(option.model)}
 					stopPropagationOnClick
-					tooltip="Retry loading model"
+					tooltip={t('Retry loading model')}
 					tooltipAsTitle
 				/>
 			{:else if isLoaded || isSleeping}
@@ -88,7 +89,7 @@
 					iconSize="h-4 w-4"
 					onclick={() => modelsStore.status.unload(option.model)}
 					stopPropagationOnClick
-					tooltip="Unload model"
+					tooltip={t('Unload model')}
 					tooltipAsTitle
 				/>
 			{:else}
@@ -98,7 +99,7 @@
 					iconSize="h-4 w-4"
 					onclick={() => modelsStore.status.load(option.model)}
 					stopPropagationOnClick
-					tooltip="Load model"
+					tooltip={t('Load model')}
 					tooltipAsTitle
 				/>
 			{/if}

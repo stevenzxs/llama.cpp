@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Download, Heart } from '@lucide/svelte';
 	import { HuggingFaceService } from '$lib/services';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { HfModelDetailInfo } from '$lib/types/huggingface';
 
 	interface Props {
@@ -26,6 +27,6 @@
 	{/if}
 
 	{#if details.lastModified}
-		<span>Updated {HuggingFaceService.formatRelativeTime(details.lastModified)}</span>
+		<span>{t('Updated')} {HuggingFaceService.formatRelativeTime(details.lastModified)}</span>
 	{/if}
 </div>

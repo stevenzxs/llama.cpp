@@ -3,6 +3,7 @@
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import { Checkbox } from '$lib/components/ui/checkbox';
 	import Label from '$lib/components/ui/label/label.svelte';
+	import { t } from '$lib/stores/locale.svelte';
 
 	let {
 		includeSensitiveData = $bindable(false),
@@ -32,7 +33,7 @@
 				{:else}
 					<Shield class="h-5 w-5 text-destructive" />
 				{/if}
-				Export Settings
+				{t('Export Settings')}
 			</AlertDialog.Title>
 
 			<AlertDialog.Description>
@@ -59,24 +60,24 @@
 				for="include-sensitive"
 			>
 				{#if includeSensitiveData}
-					<span class="text-destructive">Include sensitive data (not recommended)</span>
+					<span class="text-destructive">{t('Include sensitive data (not recommended)')}</span>
 				{:else}
-					<span>Include sensitive data</span>
+					<span>{t('Include sensitive data')}</span>
 				{/if}
 			</Label>
 		</div>
 
 		<AlertDialog.Footer>
-			<AlertDialog.Cancel onclick={onCancel}>Cancel</AlertDialog.Cancel>
+			<AlertDialog.Cancel onclick={onCancel}>{t('Cancel')}</AlertDialog.Cancel>
 
 			<AlertDialog.Action
 				class="bg-destructive text-white hover:bg-destructive/80"
 				onclick={onConfirm}
 			>
 				{#if includeSensitiveData}
-					Export Anyway
+					{t('Export Anyway')}
 				{:else}
-					Export Without Sensitive Data
+					{t('Export Without Sensitive Data')}
 				{/if}
 			</AlertDialog.Action>
 		</AlertDialog.Footer>

@@ -2,6 +2,7 @@
 	import { ChevronLeft, ChevronRight } from '@lucide/svelte';
 	import { ActionIcon } from '$lib/components/app';
 	import { getChatMessageActionsContext } from '$lib/contexts';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		class?: string;
@@ -34,7 +35,7 @@
 			disabled={!hasPrevious}
 			icon={ChevronLeft}
 			onclick={() => messageActions.navigateToSibling(previousSiblingId!)}
-			tooltip="Previous version"
+			tooltip={t('Previous version')}
 		/>
 
 		<span class="px-1 font-mono text-xs">
@@ -46,7 +47,7 @@
 			disabled={!hasNext}
 			icon={ChevronRight}
 			onclick={() => messageActions.navigateToSibling(nextSiblingId!)}
-			tooltip="Next version"
+			tooltip={t('Next version')}
 		/>
 	</div>
 {/if}

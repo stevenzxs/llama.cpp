@@ -2,6 +2,7 @@
 	import { Plus, Trash2 } from '@lucide/svelte';
 	import { Input } from '$lib/components/ui/input';
 	import { KEY_VALUE_PAIR_KEY_MAX_LENGTH, KEY_VALUE_PAIR_VALUE_MAX_LENGTH } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { KeyValuePair } from '$lib/types';
 	import {
 		autoResizeTextarea,
@@ -152,7 +153,7 @@
 					></textarea>
 
 					<button
-						aria-label="Remove item"
+						aria-label={t('Remove item')}
 						class="mt-1.5 shrink-0 cursor-pointer rounded-md p-1 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
 						onclick={() => removePair(index)}
 						type="button"

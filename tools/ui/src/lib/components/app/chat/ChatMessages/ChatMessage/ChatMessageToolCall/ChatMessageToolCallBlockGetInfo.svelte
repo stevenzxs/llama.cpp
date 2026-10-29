@@ -2,6 +2,7 @@
 	import ToolCallBlock from './ToolCallBlock.svelte';
 	import { XCircle } from '@lucide/svelte';
 	import { toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { AgenticSection } from '$lib/types';
 	import { abbreviateHome } from '$lib/utils';
 
@@ -55,7 +56,7 @@
 	{open}
 	{section}
 	spinIconWhenActive
-	title="Runtime info"
+	title={t('Runtime info')}
 >
 	{#snippet children(meta, _ctx)}
 		{#if meta?.errorMessage}
@@ -119,7 +120,7 @@
 			</div>
 		{:else}
 			<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
-				Waiting for runtime info...
+				{t('Waiting for runtime info...')}
 			</div>
 		{/if}
 	{/snippet}

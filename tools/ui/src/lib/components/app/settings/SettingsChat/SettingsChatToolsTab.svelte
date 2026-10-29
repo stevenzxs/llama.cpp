@@ -6,6 +6,7 @@
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
 	import { ToolSource } from '$lib/enums/tools.enums';
 	import { mcpStore, permissionsStore, toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { getToolUi } from '$lib/utils';
 	import { SvelteSet } from 'svelte/reactivity';
 
@@ -22,11 +23,11 @@
 </script>
 
 {#if groups.length === 0}
-	<div class="py-8 text-center text-sm text-muted-foreground">No tools available</div>
+	<div class="py-8 text-center text-sm text-muted-foreground">{t('No tools available')}</div>
 {:else}
 	<div class="space-y-2">
 		<p class="text-sm text-muted-foreground">
-			Applies to new conversations. Tool picks inside a chat only affect that chat.
+			{t('Applies to new conversations. Tool picks inside a chat only affect that chat.')}
 		</p>
 
 		{#each groups as group (group.key)}
@@ -64,7 +65,7 @@
 								showVersion={false}
 							/>
 						{:else}
-							<TruncatedText class="font-medium" text={group.label} />
+							<TruncatedText class="font-medium" text={t(group.label)} />
 						{/if}
 					</span>
 
@@ -77,11 +78,11 @@
 					<div class="ml-4 border-l border-border/50 pl-2">
 						<!-- Header row -->
 						<div class="flex items-center gap-2 px-2 py-1 text-xs text-muted-foreground">
-							<span class="min-w-0 flex-1">Tool</span>
+							<span class="min-w-0 flex-1">{t('Tool')}</span>
 
-							<span class="w-16 shrink-0 text-center">Enabled</span>
+							<span class="w-16 shrink-0 text-center">{t('Enabled')}</span>
 
-							<span class="w-20 shrink-0 text-center">Always allow</span>
+							<span class="w-20 shrink-0 text-center">{t('Always allow')}</span>
 						</div>
 
 						{#each group.tools as entry (entry.key)}

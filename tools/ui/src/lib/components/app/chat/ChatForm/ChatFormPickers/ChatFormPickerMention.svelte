@@ -15,6 +15,7 @@
 	import { useDebouncedSearch } from '$lib/hooks/use-debounced-search.svelte';
 	import { usePickerNavigation } from '$lib/hooks/use-picker-navigation.svelte';
 	import { conversationsStore, deviceStore, settingsStore, toolsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { FileMentionEntry, GlobEntryResult } from '$lib/types';
 	import { abbreviateHome, runGlobSearchWithChildren } from '$lib/utils';
 
@@ -211,7 +212,7 @@
 		class="pointer-events-none absolute inset-0 opacity-0"
 		tabindex={-1}
 	>
-		<span class="sr-only">Open file mention picker</span>
+		<span class="sr-only">{t('Open file mention picker')}</span>
 	</Popover.Trigger>
 
 	<Popover.Content

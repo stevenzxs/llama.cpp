@@ -5,6 +5,7 @@
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { UI_DATA_ATTRS } from '$lib/constants';
 	import { useMarqueeSelection } from '$lib/hooks/use-marquee-selection.svelte';
+	import { t } from '$lib/stores/locale.svelte';
 	import { SvelteSet } from 'svelte/reactivity';
 
 	interface Props {
@@ -91,7 +92,7 @@
 </script>
 
 <div class="space-y-4">
-	<SearchInput bind:value={searchQuery} placeholder="Search conversations..." />
+	<SearchInput bind:value={searchQuery} placeholder={t('Search conversations...')} />
 
 	<div class="flex items-center justify-between text-sm text-muted-foreground">
 		<span>
@@ -115,9 +116,9 @@
 							/>
 						</th>
 
-						<th class="p-3 text-left text-sm font-medium">Conversation Name</th>
+						<th class="p-3 text-left text-sm font-medium">{t('Conversation Name')}</th>
 
-						<th class="w-32 p-3 text-left text-sm font-medium">Messages</th>
+						<th class="w-32 p-3 text-left text-sm font-medium">{t('Messages')}</th>
 					</tr>
 				</thead>
 
@@ -128,7 +129,7 @@
 								{#if searchQuery}
 									No conversations found matching "{searchQuery}"
 								{:else}
-									No conversations available
+									{t('No conversations available')}
 								{/if}
 							</td>
 						</tr>
@@ -172,7 +173,7 @@
 	</div>
 
 	<div class="flex justify-end gap-2">
-		<Button onclick={handleCancel} variant="outline">Cancel</Button>
+		<Button onclick={handleCancel} variant="outline">{t('Cancel')}</Button>
 
 		<Button disabled={selectedIds.size === 0} onclick={handleConfirm}>
 			{mode === 'export' ? 'Export' : 'Import'} ({selectedIds.size})

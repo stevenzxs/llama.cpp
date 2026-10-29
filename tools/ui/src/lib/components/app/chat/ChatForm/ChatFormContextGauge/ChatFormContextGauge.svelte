@@ -9,6 +9,7 @@
 	} from './gauge-popup.svelte';
 	import { useContextGauge } from '$lib/hooks/use-context-gauge.svelte';
 	import { chatStore, conversationsStore, deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { untrack } from 'svelte';
 
 	const gauge = useContextGauge();
@@ -42,7 +43,7 @@
 </script>
 
 <div
-	aria-label="Context usage"
+	aria-label={t('Context usage')}
 	class="flex h-5 w-5 cursor-default items-center justify-center max-md:h-6 max-md:w-6"
 	data-context-gauge-trigger
 	onclick={gaugeTriggerClick}

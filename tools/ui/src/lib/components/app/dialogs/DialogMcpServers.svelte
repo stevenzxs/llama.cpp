@@ -3,6 +3,7 @@
 	import { SettingsMcpServers } from '$lib/components/app/settings';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		open?: boolean;
@@ -26,7 +27,7 @@
 			<Dialog.Title class="flex items-center gap-2">
 				<McpLogo class="h-5 w-5" />
 
-				<span>MCP Servers</span>
+				<span>{t('MCP Servers')}</span>
 			</Dialog.Title>
 		</Dialog.Header>
 

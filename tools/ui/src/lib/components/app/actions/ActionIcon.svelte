@@ -2,6 +2,7 @@
 	import { Button, type ButtonSize, type ButtonVariant } from '$lib/components/ui/button';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { TooltipSide } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { Component } from 'svelte';
 
 	interface Props {
@@ -43,7 +44,7 @@
 {#snippet button(props = {})}
 	<Button
 		{...props}
-		aria-label={ariaLabel || tooltip}
+		aria-label={ariaLabel ? t(ariaLabel) : tooltip ? t(tooltip) : undefined}
 		class="h-6 w-6 p-0 {className} flex hover:bg-transparent data-[state=open]:bg-transparent!"
 		{disabled}
 		{href}
@@ -53,7 +54,7 @@
 			onclick?.(e);
 		}}
 		{size}
-		title={tooltipAsTitle ? tooltip : undefined}
+		title={tooltipAsTitle && tooltip ? t(tooltip) : undefined}
 		{variant}
 	>
 		{#if icon}
@@ -81,7 +82,7 @@
 		</Tooltip.Trigger>
 
 		<Tooltip.Content side={tooltipSide}>
-			<p>{tooltip}</p>
+			<p>{tooltip ? t(tooltip) : ''}</p>
 		</Tooltip.Content>
 	</Tooltip.Root>
 {:else}

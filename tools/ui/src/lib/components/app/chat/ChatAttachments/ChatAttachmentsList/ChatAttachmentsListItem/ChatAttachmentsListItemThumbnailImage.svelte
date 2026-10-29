@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { X } from '@lucide/svelte';
 	import { ActionIcon } from '$lib/components/app';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		class?: string;
@@ -58,7 +59,7 @@
 				icon={X}
 				onclick={() => onRemove?.(id)}
 				stopPropagationOnClick
-				tooltip="Remove"
+				tooltip={t('Remove')}
 			/>
 		</div>
 	{/if}

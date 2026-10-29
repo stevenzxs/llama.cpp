@@ -2,6 +2,7 @@
 	import { ArrowUp } from '@lucide/svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Tooltip from '$lib/components/ui/tooltip';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		canSend?: boolean;
@@ -26,7 +27,7 @@
 		type="submit"
 		{...props}
 	>
-		<span class="sr-only">Send</span>
+		<span class="sr-only">{t('Send')}</span>
 
 		<ArrowUp class="h-12 w-12" />
 	</Button>

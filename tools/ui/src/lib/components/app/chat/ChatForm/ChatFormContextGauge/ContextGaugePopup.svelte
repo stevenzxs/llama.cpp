@@ -13,6 +13,7 @@
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { useContextGauge } from '$lib/hooks/use-context-gauge.svelte';
 	import { agenticStore, chatStore, conversationsStore, deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { formatParameters } from '$lib/utils/formatters';
 
 	const gauge = useContextGauge();
@@ -94,10 +95,10 @@
 		>
 			{#if isCompacting}
 				<Loader2 class="h-3.5 w-3.5 animate-spin" />
-				Compacting...
+				{t('Compacting...')}
 			{:else}
 				<FoldVertical class="h-3.5 w-3.5" />
-				Compact conversation
+				{t('Compact conversation')}
 			{/if}
 		</Button>
 	{/if}
@@ -130,7 +131,7 @@
 			</span>
 		</div>
 	{:else}
-		<div class="text-xs text-muted-foreground">No context info available</div>
+		<div class="text-xs text-muted-foreground">{t('No context info available')}</div>
 	{/if}
 
 	{#if gauge.hasAnyUsage}
@@ -153,7 +154,7 @@
 	<Drawer.Root bind:open={gaugePopup.open}>
 		<Drawer.Content>
 			<Drawer.Header>
-				<Drawer.Title>Context</Drawer.Title>
+				<Drawer.Title>{t('Context')}</Drawer.Title>
 
 				<Drawer.Description class="sr-only">
 					Context window usage of the model the chat runs
@@ -180,7 +181,7 @@
 	>
 		<div class="flex flex-col gap-2 px-2 py-1.5">
 			<div class="flex items-center gap-2">
-				<span class="font-medium">Context</span>
+				<span class="font-medium">{t('Context')}</span>
 
 				<span class="text-muted-foreground">·</span>
 

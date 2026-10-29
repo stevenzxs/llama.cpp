@@ -7,6 +7,7 @@
 	import { type ModalityKey } from '$lib/constants';
 	import { ModelCapability } from '$lib/enums';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -57,7 +58,7 @@
 		bind:ref={filterInput}
 		bind:value={filter}
 		class="w-full md:w-auto md:max-w-64"
-		placeholder="Search your models"
+		placeholder={t('Search your models')}
 		size={deviceStore.isMobile ? 'default' : 'sm'}
 	/>
 
@@ -76,7 +77,7 @@
 		>
 			<X class="h-3.5 w-3.5" />
 
-			Clear filters
+			{t('Clear filters')}
 		</Button>
 	{/if}
 

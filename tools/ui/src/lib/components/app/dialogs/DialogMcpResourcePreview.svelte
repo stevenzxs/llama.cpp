@@ -6,6 +6,7 @@
 	import { DEFAULT_RESOURCE_FILENAME, MIME_TYPE_SUBSTRINGS } from '$lib/constants';
 	import { MimeTypeText } from '$lib/enums';
 	import { deviceStore, mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { DatabaseMessageExtraMcpResource } from '$lib/types';
 	import {
 		downloadResourceContent,
@@ -98,7 +99,7 @@
 				disabled={!extra.content}
 				onclick={handleDownload}
 				size="sm"
-				title="Download content"
+				title={t('Download content')}
 				variant="ghost"
 			>
 				<Download class="h-3.5 w-3.5" />
@@ -122,7 +123,9 @@
 				<pre
 					class="max-h-[70vh] overflow-auto rounded-md border bg-muted/30 p-4 font-mono text-sm break-words whitespace-pre-wrap">{extra.content}</pre>
 			{:else}
-				<div class="py-8 text-center text-sm text-muted-foreground">No content available</div>
+				<div class="py-8 text-center text-sm text-muted-foreground">
+					{t('No content available')}
+				</div>
 			{/if}
 		</div>
 	</Dialog.Content>

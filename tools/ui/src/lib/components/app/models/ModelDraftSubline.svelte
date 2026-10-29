@@ -2,6 +2,7 @@
 	import { Check } from '@lucide/svelte';
 	import { MODEL_BADGE_CLASS, MODEL_VARIANT_BADGE_CLASS } from '$lib/constants';
 	import { ModelRowDownloadState } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		/**
@@ -31,7 +32,7 @@
 		class="h-2.5 w-3.5 shrink-0 self-center rounded-bl-sm border-b border-l border-border/70 {connectorClass}"
 	></span>
 
-	<span class="shrink-0 text-xs text-muted-foreground">Draft model</span>
+	<span class="shrink-0 text-xs text-muted-foreground">{t('Draft model')}</span>
 
 	<span class={MODEL_VARIANT_BADGE_CLASS}>{kind}</span>
 
@@ -46,7 +47,7 @@
 			{#if percent !== null}
 				<span class="font-mono text-xs tabular-nums text-muted-foreground">{percent}%</span>
 			{:else if state === ModelRowDownloadState.PAUSED}
-				<span class="text-xs text-muted-foreground">Paused</span>
+				<span class="text-xs text-muted-foreground">{t('Paused')}</span>
 			{/if}
 		</span>
 	{/if}

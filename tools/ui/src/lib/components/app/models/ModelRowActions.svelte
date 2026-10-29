@@ -2,6 +2,7 @@
 	import { Heart, HeartOff, Info } from '@lucide/svelte';
 	import { ActionIcon } from '$lib/components/app';
 	import { modelsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 
 	interface Props {
@@ -30,7 +31,7 @@
 			icon={Info}
 			iconSize="h-4 w-4"
 			onclick={() => uiStore.openModelDetails(option.id)}
-			tooltip="Manage model"
+			tooltip={t('Manage model')}
 			tooltipAsTitle
 		/>
 	</span>
@@ -43,7 +44,7 @@
 					icon={Heart}
 					iconSize="h-4 w-4"
 					onclick={() => modelsStore.toggleFavorite(option.model)}
-					tooltip="Remove from favorites"
+					tooltip={t('Remove from favorites')}
 					tooltipAsTitle
 				/>
 			</span>
@@ -54,7 +55,7 @@
 					icon={HeartOff}
 					iconSize="h-4 w-4"
 					onclick={() => modelsStore.toggleFavorite(option.model)}
-					tooltip="Remove from favorites"
+					tooltip={t('Remove from favorites')}
 					tooltipAsTitle
 				/>
 			</span>
@@ -66,7 +67,7 @@
 				icon={Heart}
 				iconSize="h-4 w-4"
 				onclick={() => modelsStore.toggleFavorite(option.model)}
-				tooltip="Add to favorites"
+				tooltip={t('Add to favorites')}
 				tooltipAsTitle
 			/>
 		</span>

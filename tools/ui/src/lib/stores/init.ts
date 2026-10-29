@@ -1,5 +1,6 @@
 // direct imports, not via the barrel, to avoid circular deps
 import { conversationsStore } from './conversations/index.svelte';
+import { localeStore } from './locale.svelte';
 import { permissionsStore } from './permissions.svelte';
 import { settingsStore } from './settings/index.svelte';
 import { tabsStore } from './tabs.svelte';
@@ -15,6 +16,7 @@ export function initStores(): Promise<void> {
 	if (!browser) return Promise.resolve();
 
 	startup ??= (async () => {
+		localeStore.initialize();
 		await MigrationService.runAllMigrations();
 
 		settingsStore.initialize();

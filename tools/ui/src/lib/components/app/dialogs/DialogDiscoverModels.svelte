@@ -3,6 +3,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { DISCOVER_ICON } from '$lib/constants';
 	import { uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { untrack } from 'svelte';
 
 	interface Props {
@@ -38,11 +39,11 @@
 			<Dialog.Title class="flex min-h-7 items-center gap-2">
 				<DISCOVER_ICON class="h-5 w-5" />
 
-				<span>Discover</span>
+				<span>{t('Discover')}</span>
 			</Dialog.Title>
 
 			<Dialog.Description class="sr-only">
-				Find models on Hugging Face and download them to the server.
+				{t('Find models on Hugging Face and download them to the server.')}
 			</Dialog.Description>
 		</Dialog.Header>
 

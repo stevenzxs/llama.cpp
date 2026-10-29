@@ -12,6 +12,7 @@
 	import { KeyboardKey, SidebarAction } from '$lib/enums';
 	import { RouterService } from '$lib/services/router.service';
 	import { conversationsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { formatRelativeTime, isIMEComposing } from '$lib/utils';
 	import type { Component } from 'svelte';
 
@@ -161,7 +162,7 @@
 			inputRef?.focus();
 		}}
 	>
-		<Dialog.Title class="sr-only">Search</Dialog.Title>
+		<Dialog.Title class="sr-only">{t('Search')}</Dialog.Title>
 
 		<div class="border-b border-border/30 px-4 py-3 dark:border-border/20">
 			<div class="flex items-center gap-2">
@@ -175,7 +176,7 @@
 					class="h-10 min-w-0 flex-1 border-0 bg-transparent px-1 text-lg outline-none placeholder:text-muted-foreground focus:outline-none focus-visible:ring-0"
 					oninput={() => (highlighted = 0)}
 					onkeydown={handleKeydown}
-					placeholder="Search"
+					placeholder={t('Search')}
 					role="combobox"
 					spellcheck={false}
 				/>
@@ -198,7 +199,7 @@
 
 				<div class="flex flex-col gap-0.5 {sectionIndex > 0 ? 'mt-3' : ''}" role="group">
 					<p class="px-2.5 pt-1 pb-1.5 text-xs font-medium text-muted-foreground">
-						{section.title}
+						{t(section.title)}
 					</p>
 
 					{#each section.entries as entry, entryIndex (entry.id)}
@@ -222,7 +223,10 @@
 							<span class="min-w-0 flex-1 truncate">{entry.label}</span>
 
 							{#if entry.pinned}
-								<Pin aria-label="Pinned" class="{ICON_CLASS_SM} shrink-0 text-muted-foreground" />
+								<Pin
+									aria-label={t('Pinned')}
+									class="{ICON_CLASS_SM} shrink-0 text-muted-foreground"
+								/>
 							{/if}
 
 							{#if entry.meta}

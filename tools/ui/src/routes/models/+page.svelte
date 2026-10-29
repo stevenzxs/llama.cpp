@@ -3,6 +3,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { APP_NAME, DISCOVER_ICON } from '$lib/constants';
 	import { modelsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { onMount } from 'svelte';
 
 	// a direct load lands here before any chat has listed the models, and the root
@@ -26,10 +27,10 @@
 <div class="mx-auto flex h-[100dvh] w-full max-w-7xl flex-col gap-6 px-4 pt-12 md:px-8 md:pt-6">
 	<div class="flex items-start gap-4">
 		<div class="flex min-w-0 flex-col gap-1">
-			<h1 class="text-2xl font-semibold tracking-tight">Models</h1>
+			<h1 class="text-2xl font-semibold tracking-tight">{t('Models')}</h1>
 
 			<p class="text-sm text-muted-foreground">
-				Load, configure and remove the models this server can run.
+				{t('Load, configure and remove the models this server can run.')}
 			</p>
 		</div>
 
@@ -42,7 +43,7 @@
 			>
 				<DISCOVER_ICON class="h-3.5 w-3.5" />
 
-				Discover Models
+				{t('Discover Models')}
 			</Button>
 		{/if}
 	</div>

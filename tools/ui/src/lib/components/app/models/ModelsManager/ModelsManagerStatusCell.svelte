@@ -4,6 +4,7 @@
 	import type { ModelRowDownloadState } from '$lib/enums';
 	import { ServerModelStatus } from '$lib/enums';
 	import { modelsStore, serverStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption } from '$lib/types/models';
 
 	interface Props {
@@ -36,7 +37,7 @@
 {:else}
 	<span
 		class="justify-self-center text-sm text-muted-foreground {className}"
-		title="Served by this server"
+		title={t('Served by this server')}
 	>
 		-
 	</span>

@@ -17,6 +17,7 @@
 	} from '$lib/constants';
 	import { ModelDownloadConfirmAction } from '$lib/enums';
 	import { modelsStore, settingsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import {
 		type GroupedModelOptions,
 		groupModelFamilies,
@@ -200,7 +201,7 @@
 {/if}
 
 {#if downloadEntries.length > 0}
-	<p class={headerClass} style={headerStyle}>Downloading</p>
+	<p class={headerClass} style={headerStyle}>{t('Downloading')}</p>
 
 	{#each downloadEntries as entry (entry.repoWithTag)}
 		<ModelsSelectorDownloadItem

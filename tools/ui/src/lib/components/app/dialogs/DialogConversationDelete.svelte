@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Trash2 } from '@lucide/svelte';
 	import { DialogConfirmation } from '$lib/components/app';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		open: boolean;
@@ -19,6 +20,6 @@
 	icon={Trash2}
 	{onCancel}
 	{onConfirm}
-	title="Delete Conversation"
+	title={t('Delete Conversation')}
 	variant="destructive"
 />

@@ -3,6 +3,7 @@
 	import ToolCallBlock from './ToolCallBlock.svelte';
 	import { ATTACHMENT_SAVED_REGEX } from '$lib/constants/agentic.constants';
 	import { AttachmentType, MimeTypeAudio } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { DatabaseMessageExtraAudioFile, DatabaseMessageExtraImageFile } from '$lib/types';
 	import type { AgenticSection } from '$lib/types';
 	import { createBase64DataUrl } from '$lib/utils/data-url';
@@ -46,7 +47,7 @@
 <ToolCallBlock {isStreaming} meta={readMediaMeta} {onToggle} {open} {section}>
 	{#snippet titleSnippet()}
 		<span class="flex min-w-0 flex-wrap items-baseline gap-x-1">
-			<span class="shrink-0 text-muted-foreground">Read media</span>
+			<span class="shrink-0 text-muted-foreground">{t('Read media')}</span>
 
 			<span class="min-w-0 overflow-x-auto font-mono">{readMediaMeta?.fileName}</span>
 		</span>
@@ -65,7 +66,7 @@
 							src={createBase64DataUrl(audioMimeType, mediaAttachment.base64Data)}
 							type={audioMimeType}
 						/>
-						Your browser does not support the audio element.
+						{t('Your browser does not support the audio element.')}
 					</audio>
 				</div>
 			{:else}
@@ -82,7 +83,7 @@
 			{#if readMediaMeta?.sizeBytes || readMediaMeta?.mimeType}
 				<div class="mt-2 flex gap-4 text-xs text-muted-foreground">
 					{#if readMediaMeta?.sizeBytes}
-						<span>Size: {readMediaMeta.sizeBytes} bytes</span>
+						<span>{t('Size:')} {readMediaMeta.sizeBytes} bytes</span>
 					{/if}
 
 					{#if readMediaMeta?.mimeType}
@@ -96,7 +97,7 @@
 			{/if}
 		{:else}
 			<div class="rounded bg-muted/20 p-2 text-xs text-muted-foreground/70 italic">
-				Waiting for media data...
+				{t('Waiting for media data...')}
 			</div>
 		{/if}
 	{/snippet}

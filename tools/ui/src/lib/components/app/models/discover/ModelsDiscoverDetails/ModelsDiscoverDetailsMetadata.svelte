@@ -4,6 +4,7 @@
 	import { MessageSquareCode } from '@lucide/svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { modelsDiscoverStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { HfModelDetailInfo, HfModelGguf } from '$lib/types/huggingface';
 	import { formatParameters } from '$lib/utils';
 
@@ -57,7 +58,7 @@
 			variant="tertiary"
 		>
 			<MessageSquareCode class="size-3" />
-			Chat template
+			{t('Chat template')}
 		</Button>
 	{/if}
 

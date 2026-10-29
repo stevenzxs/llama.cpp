@@ -3,6 +3,7 @@
 	import { ActionIcon } from '$lib/components/app';
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
 	import { AttachmentType } from '$lib/enums';
+	import { t } from '$lib/stores/locale.svelte';
 	import {
 		formatFileSize,
 		getFileTypeLabel,
@@ -101,7 +102,12 @@
 	<div
 		class="absolute top-2 right-2 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100"
 	>
-		<ActionIcon icon={X} onclick={() => onRemove?.(id)} stopPropagationOnClick tooltip="Remove" />
+		<ActionIcon
+			icon={X}
+			onclick={() => onRemove?.(id)}
+			stopPropagationOnClick
+			tooltip={t('Remove')}
+		/>
 	</div>
 {/snippet}
 

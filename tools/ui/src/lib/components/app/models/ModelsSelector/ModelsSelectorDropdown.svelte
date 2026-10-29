@@ -15,6 +15,7 @@
 	import type { UseModelsSelectorReturn } from '$lib/hooks/use-models-selector.svelte';
 	import { ModelsService } from '$lib/services/models.service';
 	import { modelsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { ModelOption, ModelSidecarBadge } from '$lib/types/models';
 	import type { ModelItem } from '$lib/utils';
 	import { modelLoadFraction, repoOf } from '$lib/utils';
@@ -108,7 +109,7 @@
 				modelId={selectedOption.model}
 			/>
 		{:else}
-			<span class="min-w-0 font-medium">Select model</span>
+			<span class="min-w-0 font-medium">{t('Select model')}</span>
 		{/if}
 	</span>
 
@@ -197,7 +198,7 @@
 			isEmpty={ms.isEmpty && ms.isCurrentModelInCache}
 			onSearchChange={(v) => ms.setSearchTerm(v)}
 			{onSearchKeyDown}
-			placeholder="Search models..."
+			placeholder={t('Search models...')}
 			searchClass="bg-transparent"
 			searchValue={ms.searchTerm}
 		>
@@ -210,7 +211,7 @@
 					<DropdownMenu.Item class="gap-2" onSelect={handleManageModels}>
 						<MODEL_ICON class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
 
-						Manage models
+						{t('Manage models')}
 					</DropdownMenu.Item>
 				</DropdownMenu.Group>
 			{/snippet}

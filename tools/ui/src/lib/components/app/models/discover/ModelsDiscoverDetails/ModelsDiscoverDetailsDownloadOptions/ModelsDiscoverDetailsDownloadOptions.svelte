@@ -11,6 +11,7 @@
 	} from '$lib/enums';
 	import { HuggingFaceService, ModelsService } from '$lib/services';
 	import { modelsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type {
 		ModelBitDepthRow,
 		ModelCompanionDraft,
@@ -226,7 +227,7 @@
 					value={draftKind}
 				>
 					<Select.Trigger
-						aria-label="Draft type"
+						aria-label={t('Draft type')}
 						class={draftKindReadonly
 							? 'disabled:cursor-default disabled:opacity-100 [&_svg]:hidden'
 							: ''}

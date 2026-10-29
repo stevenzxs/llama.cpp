@@ -5,6 +5,7 @@
 	import { ICON_CLASS_DEFAULT, ICON_CLASS_SPIN } from '$lib/constants';
 	import { AgenticSectionType } from '$lib/enums';
 	import { mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { AgenticSection, SearchResult } from '$lib/types';
 	import {
 		buildProxiedIconUrl,
@@ -165,9 +166,9 @@
 		<div class="text-muted-foreground/70 flex items-center gap-2 py-1 text-xs italic">
 			<Loader2 class="h-3 w-3 animate-spin" />
 
-			<span>Searching...</span>
+			<span>{t('Searching...')}</span>
 		</div>
 	{:else}
-		<div class="text-muted-foreground/70 py-1 text-xs italic">No results</div>
+		<div class="text-muted-foreground/70 py-1 text-xs italic">{t('No results')}</div>
 	{/if}
 </CollapsibleContentBlock>

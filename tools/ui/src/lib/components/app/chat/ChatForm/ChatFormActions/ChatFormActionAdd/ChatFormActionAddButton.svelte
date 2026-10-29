@@ -3,6 +3,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { ATTACHMENT_TOOLTIP_TEXT, ICON_CLASS_DEFAULT } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		disabled?: boolean;
@@ -21,7 +22,7 @@
 			type="button"
 			variant="ghost"
 		>
-			<span class="sr-only">{ATTACHMENT_TOOLTIP_TEXT}</span>
+			<span class="sr-only">{t(ATTACHMENT_TOOLTIP_TEXT)}</span>
 
 			<Plus class={ICON_CLASS_DEFAULT} />
 		</Button>

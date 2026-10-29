@@ -4,6 +4,7 @@
 	import { MIN_AUTOCOMPLETE_INPUT_LENGTH } from '$lib/constants';
 	import { KeyboardKey } from '$lib/enums';
 	import { mcpStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { MCPResourceTemplateInfo } from '$lib/types';
 	import {
 		debounce,
@@ -164,8 +165,8 @@
 	{/if}
 
 	<div class="flex justify-end gap-2 pt-1">
-		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Cancel</Button>
+		<Button onclick={onCancel} size="sm" type="button" variant="secondary">{t('Cancel')}</Button>
 
-		<Button disabled={!isComplete} size="sm" type="submit">Read Resource</Button>
+		<Button disabled={!isComplete} size="sm" type="submit">{t('Read Resource')}</Button>
 	</div>
 </form>

@@ -11,6 +11,7 @@
 	import { Switch } from '$lib/components/ui/switch';
 	import { getChatMessageActionsContext, getChatMessageEditContext } from '$lib/contexts';
 	import { conversationsStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		justify: 'start' | 'end';
@@ -74,29 +75,33 @@
 		<div
 			class="pointer-events-auto inset-0 flex items-center gap-1 opacity-100 transition-all duration-150"
 		>
-			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip="Copy" />
+			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip={t('Copy')} />
 
-			<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Edit" />
+			<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip={t('Edit')} />
 
 			{#if onRegenerate}
-				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate()} tooltip="Regenerate" />
+				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate()} tooltip={t('Regenerate')} />
 			{/if}
 
 			{#if onContinue}
-				<ActionIcon icon={ArrowRight} onclick={onContinue} tooltip="Continue" />
+				<ActionIcon icon={ArrowRight} onclick={onContinue} tooltip={t('Continue')} />
 			{/if}
 
 			{#if messageActions.forkConversation}
-				<ActionIcon icon={GitBranch} onclick={handleOpenForkDialog} tooltip="Fork conversation" />
+				<ActionIcon
+					icon={GitBranch}
+					onclick={handleOpenForkDialog}
+					tooltip={t('Fork conversation')}
+				/>
 			{/if}
 
-			<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip="Delete" />
+			<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip={t('Delete')} />
 		</div>
 	</div>
 
 	{#if showRawOutputSwitch}
 		<div class="flex items-center gap-2">
-			<span class="text-xs text-muted-foreground">Show raw output</span>
+			<span class="text-xs text-muted-foreground">{t('Show raw output')}</span>
 
 			<Switch
 				checked={rawOutputEnabled}
@@ -118,7 +123,7 @@
 	onCancel={() => messageActions.setShowDeleteDialog(false)}
 	onConfirm={handleConfirmDelete}
 	open={messageActions.showDeleteDialog}
-	title="Delete Message"
+	title={t('Delete Message')}
 	variant="destructive"
 />
 
@@ -130,17 +135,17 @@
 	icon={GitBranch}
 	onCancel={() => (showForkDialog = false)}
 	onConfirm={handleConfirmFork}
-	title="Fork Conversation"
+	title={t('Fork Conversation')}
 >
 	<div class="flex flex-col gap-4 py-2">
 		<div class="flex flex-col gap-2">
-			<Label for="fork-name">Title</Label>
+			<Label for="fork-name">{t('Title')}</Label>
 
 			<Input
 				bind:value={forkName}
 				class="text-foreground"
 				id="fork-name"
-				placeholder="Enter fork name"
+				placeholder={t('Enter fork name')}
 				type="text"
 			/>
 		</div>
@@ -155,7 +160,7 @@
 			/>
 
 			<Label class="cursor-pointer text-sm font-normal" for="fork-attachments">
-				Include all attachments
+				{t('Include all attachments')}
 			</Label>
 		</div>
 	</div>

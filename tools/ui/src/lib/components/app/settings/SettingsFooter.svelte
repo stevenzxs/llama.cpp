@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		hasChanges?: boolean;
@@ -15,6 +16,6 @@
 
 {#if hasChanges}
 	<div class="sticky bottom-0 mx-auto mt-4 flex w-full justify-end pb-4 md:pb-0">
-		<Button onclick={handleSave}>Save settings</Button>
+		<Button onclick={handleSave}>{t('Save settings')}</Button>
 	</div>
 {/if}

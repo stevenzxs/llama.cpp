@@ -2,6 +2,7 @@
 	import { ArrowDown } from '@lucide/svelte';
 	import ActionIcon from '$lib/components/app/actions/ActionIcon.svelte';
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
+	import { t } from '$lib/stores/locale.svelte';
 
 	let { onclick }: { onclick: (e?: MouseEvent) => void } = $props();
 </script>
@@ -14,6 +15,6 @@
 		iconSize={ICON_CLASS_DEFAULT}
 		{onclick}
 		size="lg"
-		tooltip="Scroll to bottom"
+		tooltip={t('Scroll to bottom')}
 	/>
 </div>

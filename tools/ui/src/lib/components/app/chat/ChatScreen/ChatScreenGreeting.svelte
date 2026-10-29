@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { CHAT_GREETING_ENTER_DELAY_MS } from '$lib/constants';
 	import { serverStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 
 	interface Props {
 		isEmpty: boolean;
@@ -43,11 +44,14 @@
 	]}
 >
 	<div style:transition-delay="{CHAT_GREETING_ENTER_DELAY_MS}ms" class={enterClass}>
-		<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">Hello there</h1>
+		<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">{t('Hello there')}</h1>
 
 		<p class="text-muted-foreground md:text-lg">
-			{serverStore.props?.modalities?.audio ? 'Record audio, type a message ' : 'Type a message'} or upload
-			files to get started
+			{t(
+				serverStore.props?.modalities?.audio
+					? 'Record audio, type a message or upload files to get started'
+					: 'Type a message or upload files to get started'
+			)}
 		</p>
 	</div>
 </div>

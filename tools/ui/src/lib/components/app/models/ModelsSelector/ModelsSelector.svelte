@@ -15,6 +15,7 @@
 	import { useChatFormModel } from '$lib/hooks/use-chat-form-model.svelte';
 	import { useModelsSelector } from '$lib/hooks/use-models-selector.svelte';
 	import { deviceStore, modelsStore, serverStore, settingsStore, uiStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import { type ModelItem, modelLoadFraction } from '$lib/utils';
 	import { untrack } from 'svelte';
 
@@ -216,7 +217,7 @@
 				modelId={selectedOption.model}
 			/>
 		{:else}
-			<span class="min-w-0 font-medium">Select model</span>
+			<span class="min-w-0 font-medium">{t('Select model')}</span>
 		{/if}
 	</span>
 
@@ -299,7 +300,7 @@
 	<div class="flex items-center gap-2 text-xs text-muted-foreground">
 		<Loader2 class="h-3.5 w-3.5 animate-spin" />
 
-		Loading models...
+		{t('Loading models...')}
 	</div>
 {:else if ms.options.length === 0 && ms.isMultiModel}
 	{#if displayModel}
@@ -310,7 +311,7 @@
 			<MODEL_ICON class="h-3.5 w-3.5 shrink-0" />
 		</span>
 	{:else}
-		<span class="text-xs text-muted-foreground">No models yet.</span>
+		<span class="text-xs text-muted-foreground">{t('No models yet.')}</span>
 	{/if}
 {:else if ms.isMultiModel}
 	{#if isMobile}

@@ -5,6 +5,7 @@
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { deviceStore } from '$lib/stores';
+	import { t } from '$lib/stores/locale.svelte';
 	import type { Component } from 'svelte';
 
 	interface ActionItem {
@@ -88,7 +89,7 @@
 					>
 						{@render iconComponent(action.icon, 'h-4 w-4 shrink-0')}
 
-						<span class="flex-1">{action.label}</span>
+						<span class="flex-1">{t(action.label)}</span>
 
 						{#if action.shortcut}
 							<KeyboardShortcutInfo keys={action.shortcut} variant={action.variant} />
@@ -142,7 +143,7 @@
 							action.icon,
 							`h-4 w-4 ${action.variant === 'destructive' ? 'text-destructive' : ''}`
 						)}
-						{action.label}
+						{t(action.label)}
 					</div>
 
 					{#if action.shortcut}
